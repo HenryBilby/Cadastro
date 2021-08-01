@@ -14,21 +14,25 @@ class MainActivity : AppCompatActivity() {
 
         var edtNome = findViewById<EditText>(R.id.edtNome)
         var edtCrefito = findViewById<EditText>(R.id.edtCrefito)
-        var rbSexo = findViewById<RadioGroup>(R.id.rdgSexo).checkedRadioButtonId
-        var radioButtonSelected = findViewById<RadioButton>(rbSexo)
+        var rdgSexo = findViewById<RadioGroup>(R.id.rdgSexo)
         var salvar = findViewById<Button>(R.id.btnSalvar)
 
         salvar?.setOnClickListener{
-//            Toast.makeText(this, edtNome.toString(), Toast.LENGTH_LONG).show()
+            var rbSelected = findViewById<RadioButton>(
+                rdgSexo!!.checkedRadioButtonId)
 
             var fisio = Fisioterapeuta(2,
                 edtNome.text.toString(),
                 edtCrefito.text.toString().toInt(),
-                radioButtonSelected.text.toString())
+                rbSelected.text.toString())
 
             lifecycleScope.launch {
                 insereFisioterapeuta(fisio)
             }
+
+            Toast.makeText(this,
+                "Fisioterapeuta salvo com sucesso",
+                Toast.LENGTH_SHORT).show()
         }
     }
 

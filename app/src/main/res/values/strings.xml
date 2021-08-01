@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CadastroFisioterapeuta</string>
+
+    <string name="rbFeminino">Feminino</string>
+    <string name="rbMasculino">Masculino</string>
+    <string name="rbNaoBinario">Não binário</string>
 </resources>
